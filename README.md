@@ -1,1 +1,1 @@
-# VBotPhoneSDK-Private
+# VBotPhoneSDKPrivate
