@@ -4,7 +4,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.github.VBotDevTeam</groupId>
   <artifactId>VBotPhoneSDK</artifactId>
-  <version>1.0.6</version>
+  <version>1.0.7</version>
   <packaging>pom</packaging>
   <description>VBot Phone SDK Android</description>
 </project>
