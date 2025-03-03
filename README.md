@@ -244,3 +244,63 @@ Các key ngôn ngữ đang sử dụng trong VBot SDK
         "call_speaker_earpiece" to "Loa trong",
         "call_speaker_title" to "Đầu phát âm thanh",
 ```
+---
+
+### Xem thêm
+
+#### VBotEndCallReason và VBotError
+
+```
+    // Timeout
+    case timeOut = -1001
+    
+    // Khởi tạo không thành công
+    case initiationFailed = 1001
+    
+    case initiationFailed_1 = 1002
+    
+    // Chưa cấp truyền mic
+    case microphonePermissionDenied = 1003
+    
+    case invalidPhoneNumber = 1004
+    
+    // Không có dữ liệu từ máy chủ
+    case noDataFromServer = 1005
+    
+    case initiationFailed_2 = 1006
+    
+    case initiationFailed_3 = 1007
+    
+    // Dữ liệu không hợp lệ
+    case dataInvalid = 1008
+    
+    case initiationFailed_4 = 1009
+    
+    // Xác thực thất bại
+    case authenticatedFailed = 1010
+    
+    // Đang có cuộc gọi khác
+    case anotherCallInProgress = 1011
+    
+    // Cuộc gọi kết thúc
+    case normal = 1012
+    
+    // Từ chối cuộc gọi
+    case decline = 1013
+    
+    // Không liên lạc được
+    case temporarilyUnavailable = 1014
+    
+    // Máy bận
+    case busy = 1015
+    
+    // reportNewIncomingCall lỗi
+    case reportNewIncomingCallFailed = 1016
+    
+    // Lỗi chưa xác định
+    case unknownError = 1999
+```
+
+
+
+
