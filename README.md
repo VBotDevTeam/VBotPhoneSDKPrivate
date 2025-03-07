@@ -24,8 +24,8 @@ Cần thêm các thư viện cần thiết để SDK hoạt động
 
 ```kotlin
 dependencies {
-    //các thư viện cần thiết để SDK hoạt động
-    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
+		//các thư viện cần thiết để SDK hoạt động
+		implementation("io.reactivex.rxjava2:rxjava:2.2.21")
     implementation("com.google.code.gson:gson:2.11.0")
     implementation("com.squareup.retrofit2:adapter-rxjava2:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
@@ -35,8 +35,8 @@ dependencies {
     implementation ("com.squareup.okhttp3:okhttp:5.0.0-alpha.14")
     implementation("com.jakewharton.timber:timber:5.0.1")
     implementation("com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.0")
-
-    //Thêm SDK
+    
+		//Thêm SDK
     implementation 'com.github.VBotDevTeam:VBotPhoneSDKPrivate:1.0.8'
 }
 ```
@@ -204,3 +204,43 @@ Khi app thay đổi ngôn ngữ, hãy dùng hàm **setLocalizationStrings(string
 fun setLocalizationStrings(values: Map<String, String?>)
 ```
 Truyền dữ liệu qua metadata khi gọi hàm startIncomingCall
+
+
+Các key ngôn ngữ đang sử dụng trong VBot SDK
+```kotlin
+		"call_btn_messsage" to "Nhắn tin",
+        "call_btn_mute" to "Im lặng",
+        "call_btn_speaker" to "Loa ngoài",
+        "call_calling" to "Đang gọi",
+        "call_connecting" to "Đang kết nối",
+        "call_end" to "Kết thúc",
+        "call_lost_connection" to "Mất kết nối",
+        "call_refused" to "Người nhận từ chối cuộc gọi",
+        "call_ringing" to "Đang gọi bạn",
+        "call_early" to "Đang đổ chuông",
+        "call_title" to "Gọi miễn phí",
+        "call_busy" to "Máy bận",
+        "call_temporarily_unavailable" to "Không liên lạc được",
+
+        "call_failed_api" to "Không thể thực hiện cuộc gọi. Vui lòng thử lại.",
+        "call_failed_no_connection" to "Không có mạng. Vui lòng thử lại.",
+        "call_weak_signal" to "Sóng yếu",
+
+        "call_permission_microphone_title" to "Xanh SM muốn truy cập micrô trên thiết bị của bạn.",
+        "call_permission_microphone_content" to "Việc này cho phép ứng dụng thực hiện cuộc gọi miễn phí trong ứng dụng.",
+        "call_permission_btn_allow" to "Cho phép",
+        "call_permission_btn_deny" to "Không cho phép",
+
+        "call_permission_microphone_demied_content" to "Vui lòng cho phép ứng dụng truy cập \"Microphone\" trong Cài đặt điện thoại của bạn.",
+        "call_permission_microphone_demied_title" to "Không thể thực hiện cuộc gọi do chưa có quyền truy cập “Micrô\"",
+        "call_permission_btn_setting" to "Đi đến Cài đặt",
+        "call_permission_btn_skip" to "Bỏ qua",
+
+        "call_notification_answer" to "Trả lời",
+        "call_notification_end" to "Kết thúc",
+        "call_speaker_bluetooth" to "Loa Bluetooth",
+        "call_speaker_headset" to "Tai nghe",
+        "call_speaker_speaker" to "Loa ngoài",
+        "call_speaker_earpiece" to "Loa trong",
+        "call_speaker_title" to "Đầu phát âm thanh",
+```
