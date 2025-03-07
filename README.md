@@ -208,7 +208,7 @@ Truyền dữ liệu qua metadata khi gọi hàm startIncomingCall
 
 Các key ngôn ngữ đang sử dụng trong VBot SDK
 ```kotlin
-		"call_btn_messsage" to "Nhắn tin",
+				"call_btn_messsage" to "Nhắn tin",
         "call_btn_mute" to "Im lặng",
         "call_btn_speaker" to "Loa ngoài",
         "call_calling" to "Đang gọi",
