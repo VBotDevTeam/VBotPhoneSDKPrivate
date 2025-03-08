@@ -99,8 +99,8 @@ VBotPhoneSDK yêu cầu một bộ quy tắc ProGuard. Các đoạn mã sau đâ
 ```kotlin
 -keep class com.vpmedia.vbotphonesdk.** {*;}
 
--keep class org.linphone.** { *; }
--keepclassmembers class org.linphone.** { *; }
+-keep class org.pjsip.** { *; }
+-keepclassmembers class org.pjsip.** { *; }
 ```
 
 ## Sử dụng SDK
