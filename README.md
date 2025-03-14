@@ -18,9 +18,9 @@ Android SDK version 23 trở lên
 
 ### Cách 1
 
-Trong file **app** → **build.gradle** thêm
+Trong file **app** → **build.gradle** thêm 
 
-Cần thêm các thư viện cần thiết để SDK hoạt động
+Cần thêm các thư viện cần thiết để SDK hoạt động 
 
 ```kotlin
 dependencies {
@@ -40,7 +40,7 @@ dependencies {
     implementation 'com.github.VBotDevTeam:VBotPhoneSDKPrivate:1.0.8'
 }
 ```
-Trong file **settings.gradle** thêm
+Trong file **settings.gradle** thêm 
 ```kotlin
 dependencyResolutionManagement {
 		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
@@ -70,25 +70,25 @@ Danh sách các quyền cần thiết để SDK hoạt động:
 
 •	**Lưu ý**: Đây là quyền **bắt buộc** để SDK hoạt động.
 
-2.	**Quyền truy cập micro**
+2.	**Quyền truy cập micro** 
 
 •	Thu âm giọng nói để gửi trong các cuộc gọi VoIP.
 
 •	**Lưu ý**: Đây là quyền **bắt buộc** để SDK hoạt động.
 
-3.	**Quyền truy cập thiết bị ở gần**
+3.	**Quyền truy cập thiết bị ở gần** 
 
 •	Kết nối với các thiết bị Bluetooth như tai nghe hoặc loa ngoài để sử dụng trong cuộc gọi.
 
-4.	**Quyền thông báo**
+4.	**Quyền thông báo** 
 
 •	Hiển thị thông báo cuộc gọi đến hoặc các sự kiện quan trọng từ SDK.
 
-5.	**Quyền hiển thị trên ứng dụng khác**
+5.	**Quyền hiển thị trên ứng dụng khác** 
 
 •	Hiển thị thông báo quan trọng (thông báo cuộc gọi đến) dưới dạng “màn hình nổi” hoặc “pop-up” ngay cả khi ứng dụng đang ở chế độ nền hoặc màn hình khóa.
 
-6.	**Quyền cho phép sử dụng dữ liệu không hạn chế**
+6.	**Quyền cho phép sử dụng dữ liệu không hạn chế** 
 
 •	Khi hiển thị thông báo cuộc gọi thì sdk có quyền này sẽ hoạt động tốt hơn, kết nối với cuộc gọi nhanh hơn
 
@@ -99,8 +99,8 @@ VBotPhoneSDK yêu cầu một bộ quy tắc ProGuard. Các đoạn mã sau đâ
 ```kotlin
 -keep class com.vpmedia.vbotphonesdk.** {*;}
 
--keep class org.pjsip.** { *; }
--keepclassmembers class org.pjsip.** { *; }
+-keep class org.linphone.** { *; }
+-keepclassmembers class org.linphone.** { *; }
 ```
 
 ## Sử dụng SDK
@@ -115,7 +115,7 @@ fun setup(context: Context, token: String)
 ```
 
 Trong đó:
-- **token** là App Token, đại diện cho ứng dụng của bạn được dùng để xác thực với máy chủ VBot
+- **token** là App Token, đại diện cho ứng dụng của bạn được dùng để xác thực với máy chủ VBot 
 - **config** là cấu hình tùy chọn cho SDK
 
 ---
@@ -140,7 +140,7 @@ class VBotListener {
 `onCallState` Trả về trạng thái của cuộc gọi
 `onMessageButtonClick` Trả về sự kiện khi người dùng nhấn vào nút nhắn tin
 `callAccepted` Trả về cuộc gọi đến được chấp nhận (Khi user chọn chấp nhận cuộc gọi)
-`callEnded` Trả về khi tắt cuộc gọi
+`callEnded` Trả về khi tắt cuộc gọi 
 
 ---
 
@@ -193,6 +193,18 @@ Trong hàm onMessageReceived kế thừa từ FirebaseMessagingService hãy sử
 Hàm này có thể được gọi khi có thông báo về cuộc gọi đến, cho phép ứng dụng xử lý thông tin, hiển thị thông báo cho người dùng
 
 ---
+### Thao tác trong cuộc gọi
+
+```kotlin
+// Kiểm tra xem có call hay không
+fun hasActiveCall(): Boolean
+
+// Quay lại màn hình cuộc gọi
+fun returnToCallVCIfNeeded()
+
+// Ẩn màn hình cuộc gọi
+fun hideCallVCIfNeeded()
+```
 
 ### Đa ngôn ngữ
 
