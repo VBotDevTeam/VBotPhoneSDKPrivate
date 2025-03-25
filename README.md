@@ -37,7 +37,7 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.0")
     
 		//Thêm SDK
-    implementation 'com.github.VBotDevTeam:VBotPhoneSDKPrivate:1.0.8'
+    implementation 'com.github.VBotDevTeam:VBotPhoneSDKPrivate:2.0.6'
 }
 ```
 Trong file **settings.gradle** thêm 
