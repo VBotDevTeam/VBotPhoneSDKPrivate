@@ -84,7 +84,7 @@ Danh sách các quyền cần thiết để SDK hoạt động:
 
 •	Hiển thị thông báo cuộc gọi đến hoặc các sự kiện quan trọng từ SDK.
 
-5.	**Quyền hiển thị trên ứng dụng khác** 
+5.	**Quyền hiển thị trên ứng dụng khác (Xuất hiện trên cùng)** 
 
 •	Hiển thị thông báo quan trọng (thông báo cuộc gọi đến) dưới dạng “màn hình nổi” hoặc “pop-up” ngay cả khi ứng dụng đang ở chế độ nền hoặc màn hình khóa.
 
