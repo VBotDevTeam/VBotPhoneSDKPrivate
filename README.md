@@ -32,10 +32,10 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.squareup.okio:okio:3.9.0")
     implementation("org.reactivestreams:reactive-streams:1.0.4")
-    implementation ("com.squareup.okhttp3:okhttp:5.0.0-alpha.14")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.14")
     implementation("com.jakewharton.timber:timber:5.0.1")
     implementation("com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.0")
-    implementation ("com.madgag.spongycastle:core:1.58.0.0")
+    implementation("com.madgag.spongycastle:core:1.58.0.0")
     //Thêm SDK
     implementation 'com.github.VBotDevTeam:VBotPhoneSDKPrivate:2.0.8'
     
