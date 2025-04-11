@@ -25,20 +25,18 @@ Cần thêm các thư viện cần thiết để SDK hoạt động
 ```kotlin
 dependencies {
 		//các thư viện cần thiết để SDK hoạt động
-    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
+		implementation("io.reactivex.rxjava2:rxjava:2.2.21")
     implementation("com.google.code.gson:gson:2.11.0")
     implementation("com.squareup.retrofit2:adapter-rxjava2:2.11.0")
     implementation("com.squareup.retrofit2:converter-gson:2.11.0")
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
-    implementation("com.squareup.okio:okio:3.9.0") // < 2.0.9
     implementation("org.reactivestreams:reactive-streams:1.0.4")
     implementation ("com.squareup.okhttp3:okhttp:5.0.0-alpha.14")
     implementation("com.jakewharton.timber:timber:5.0.1")
     implementation("com.squareup.okhttp3:okhttp-dnsoverhttps:4.9.0")
-    implementation ("com.madgag.spongycastle:core:1.58.0.0")
-    //Thêm SDK
-    implementation 'com.github.VBotDevTeam:VBotPhoneSDKPrivate:2.0.9'
     
+		//Thêm SDK
+    implementation 'com.github.VBotDevTeam:VBotPhoneSDKPrivate:2.0.9'
 }
 ```
 Trong file **settings.gradle** thêm 
@@ -85,7 +83,7 @@ Danh sách các quyền cần thiết để SDK hoạt động:
 
 •	Hiển thị thông báo cuộc gọi đến hoặc các sự kiện quan trọng từ SDK.
 
-5.	**Quyền hiển thị trên ứng dụng khác (Xuất hiện trên cùng)** 
+5.	**Quyền hiển thị trên ứng dụng khác** 
 
 •	Hiển thị thông báo quan trọng (thông báo cuộc gọi đến) dưới dạng “màn hình nổi” hoặc “pop-up” ngay cả khi ứng dụng đang ở chế độ nền hoặc màn hình khóa.
 
@@ -116,32 +114,7 @@ fun setup(context: Context, token: String)
 ```
 
 Trong đó:
-- **token** là App Token, đại diện cho ứng dụng của bạn được dùng để xác thực với máy chủ VBot 
-- **config** là cấu hình tùy chọn cho SDK
-
----
-### Lắng nghe sự kiện
-
-```kotlin
-fun addListener(listener: VBotListener)
-```
-
-```kotlin
-class VBotListener {
-
-    override fun onCallState(state: VBotCallState) {}
-
-    override fun onMessageButtonClick() {}
-
-    override fun callAccepted() {}
-
-    override fun callEnded(reason: VBotEndCallReason) {}
-}
-```
-`onCallState` Trả về trạng thái của cuộc gọi
-`onMessageButtonClick` Trả về sự kiện khi người dùng nhấn vào nút nhắn tin
-`callAccepted` Trả về cuộc gọi đến được chấp nhận (Khi user chọn chấp nhận cuộc gọi)
-`callEnded` Trả về khi tắt cuộc gọi 
+- **token** là App Token, đại diện cho ứng dụng của bạn được dùng để xác thực với máy chủ VBot
 
 ---
 
@@ -195,6 +168,10 @@ Hàm này có thể được gọi khi có thông báo về cuộc gọi đến,
 
 ---
 ### Thao tác trong cuộc gọi
+Từ ứng dụng của bạn, có thể gọi vào các hàm khác nhau của VBot SDK để thực hiện các hành động trong cuộc gọi
+
+Ví dụ:
+
 
 ```kotlin
 // Kiểm tra xem có call hay không
@@ -207,53 +184,101 @@ fun returnToCallVCIfNeeded()
 fun hideCallVCIfNeeded()
 ```
 
+---
+### Lắng nghe sự kiện
+
+```kotlin
+
+// Đăng ký nhận sự kiện
+fun addListener(listener: VBotListener)
+
+// Hủy đăng ký
+fun removeListener(listener: VBotListener)
+
+```
+
+```kotlin
+class VBotListener {
+
+		// Trạng thái cuộc gọi thay đổi
+    override fun onCallState(state: VBotCallState) {}
+		
+		// // Cuộc gọi đến được chấp nhận (Khi user chọn chấp nhận cuộc gọi)
+    override fun callAccepted() {}
+		
+     // Cuộc gọi kết thúc, cùng nguyên nhân
+    override fun callEnded(reason: VBotEndCallReason) {}
+    
+    // Nhấn vào nút nhắn tin
+    override fun onMessageButtonClick() {}
+}
+```
+
+
+
+---
 ### Đa ngôn ngữ
 
-VBot SDK mặc định chỉ hỗ trợ Tiếng Việt
+Các màn hình cuộc gọi VBot SDK mặc định chỉ hỗ trợ Tiếng Việt
 
-Khi app thay đổi ngôn ngữ, hãy dùng hàm **setLocalizationStrings(strings)** để thay đổi ngôn ngữ cho VBot SDK
+Để thay đổi ngôn ngữ truyền dữ liệu qua metadata khi gọi hàm startIncomingCall và startOutgoingCall
 
-```kotlin
-fun setLocalizationStrings(values: Map<String, String?>)
+---
+### Xem thêm
+#### VBotEndCallReason và VBotError
+
+
 ```
-Truyền dữ liệu qua metadata khi gọi hàm startIncomingCall
-
-
-Các key ngôn ngữ đang sử dụng trong VBot SDK
-```kotlin
-				"call_btn_messsage" to "Nhắn tin",
-        "call_btn_mute" to "Im lặng",
-        "call_btn_speaker" to "Loa ngoài",
-        "call_calling" to "Đang gọi",
-        "call_connecting" to "Đang kết nối",
-        "call_end" to "Kết thúc",
-        "call_lost_connection" to "Mất kết nối",
-        "call_refused" to "Người nhận từ chối cuộc gọi",
-        "call_ringing" to "Đang gọi bạn",
-        "call_early" to "Đang đổ chuông",
-        "call_title" to "Gọi miễn phí",
-        "call_busy" to "Máy bận",
-        "call_temporarily_unavailable" to "Không liên lạc được",
-
-        "call_failed_api" to "Không thể thực hiện cuộc gọi. Vui lòng thử lại.",
-        "call_failed_no_connection" to "Không có mạng. Vui lòng thử lại.",
-        "call_weak_signal" to "Sóng yếu",
-
-        "call_permission_microphone_title" to "Xanh SM muốn truy cập micrô trên thiết bị của bạn.",
-        "call_permission_microphone_content" to "Việc này cho phép ứng dụng thực hiện cuộc gọi miễn phí trong ứng dụng.",
-        "call_permission_btn_allow" to "Cho phép",
-        "call_permission_btn_deny" to "Không cho phép",
-
-        "call_permission_microphone_demied_content" to "Vui lòng cho phép ứng dụng truy cập \"Microphone\" trong Cài đặt điện thoại của bạn.",
-        "call_permission_microphone_demied_title" to "Không thể thực hiện cuộc gọi do chưa có quyền truy cập “Micrô\"",
-        "call_permission_btn_setting" to "Đi đến Cài đặt",
-        "call_permission_btn_skip" to "Bỏ qua",
-
-        "call_notification_answer" to "Trả lời",
-        "call_notification_end" to "Kết thúc",
-        "call_speaker_bluetooth" to "Loa Bluetooth",
-        "call_speaker_headset" to "Tai nghe",
-        "call_speaker_speaker" to "Loa ngoài",
-        "call_speaker_earpiece" to "Loa trong",
-        "call_speaker_title" to "Đầu phát âm thanh",
+    // Timeout
+    case timeOut = -1001
+    
+    // Khởi tạo không thành công
+    case initiationFailed = 1001
+    
+    case initiationFailed_1 = 1002
+    
+    // Chưa cấp truyền mic
+    case microphonePermissionDenied = 1003
+    
+    case invalidPhoneNumber = 1004
+    
+    // Không có dữ liệu từ máy chủ
+    case noDataFromServer = 1005
+    
+    case initiationFailed_2 = 1006
+    
+    case initiationFailed_3 = 1007
+    
+    // Dữ liệu không hợp lệ
+    case dataInvalid = 1008
+    
+    case initiationFailed_4 = 1009
+    
+    // Xác thực thất bại
+    case authenticatedFailed = 1010
+    
+    // Đang có cuộc gọi khác
+    case anotherCallInProgress = 1011
+    
+    // Cuộc gọi kết thúc
+    case normal = 1012
+    
+    // Từ chối cuộc gọi
+    case decline = 1013
+    
+    // Không liên lạc được
+    case temporarilyUnavailable = 1014
+    
+    // Máy bận
+    case busy = 1015
+    
+    // reportNewIncomingCall lỗi
+    case reportNewIncomingCallFailed = 1016
+    
+    // Lỗi chưa xác định
+    case unknownError = 1999
 ```
+
+
+
+
