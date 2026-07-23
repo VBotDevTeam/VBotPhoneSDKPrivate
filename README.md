@@ -14,8 +14,6 @@ SDK tích hợp cuộc gọi VoIP cho ứng dụng Android, hỗ trợ quản l�
 
 ## Cấu hình SDK
 
-### Cách 1
-
 Trong file **app** → **build.gradle**, thêm các thư viện cần thiết để SDK hoạt động:
 
 ```kotlin
@@ -34,7 +32,7 @@ dependencies {
     implementation("com.madgag.spongycastle:core:1.58.0.0")
 
     // Thêm SDK
-    implementation 'com.github.VBotDevTeam:VBotPhoneSDKPrivate:2.0.24'
+    implementation 'com.github.VBotDevTeam:VBotPhoneSDKPrivate:2.0.25'
 }
 ```
 
@@ -44,19 +42,12 @@ Trong file **settings.gradle** thêm:
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
+        google()
         mavenCentral()
-        maven { url 'https://jitpack.io' }
+        maven { url 'https://raw.githubusercontent.com/VBotDevTeam/VBotPhoneSDKPrivate/main/' }
     }
 }
 ```
-
-### Cách 2
-
-- Vào trang https://jitpack.io/
-- Trong vào ô _'Git repo url'_ nhập **VBotDevTeam/VBotPhoneSDKPrivate**
-- Nhấn **Look up**
-- Chọn version và nhấn **Get it**
-- Làm theo hướng dẫn trên trang web
 
 ---
 
