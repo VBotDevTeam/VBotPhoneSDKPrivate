@@ -32,7 +32,7 @@ dependencies {
     implementation("com.madgag.spongycastle:core:1.58.0.0")
 
     // Thêm SDK
-    implementation 'com.github.VBotDevTeam:VBotPhoneSDKPrivate:2.0.25'
+    implementation 'com.github.VBotDevTeam:VBotPhoneSDKPrivate:2.0.26'
 }
 ```
 
@@ -47,6 +47,18 @@ dependencyResolutionManagement {
         maven { url 'https://raw.githubusercontent.com/VBotDevTeam/VBotPhoneSDKPrivate/main/' }
     }
 }
+```
+
+### Cấu hình quyền trong AndroidManifest.xml
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE_PHONE_CALL" />
+
+<!-- Bắt buộc cho ứng dụng target Android 14 (API 34) trở lên -->
+<uses-permission android:name="android.permission.FOREGROUND_SERVICE_MICROPHONE" />
 ```
 
 ---
