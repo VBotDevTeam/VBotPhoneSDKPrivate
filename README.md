@@ -32,7 +32,7 @@ dependencies {
     implementation("com.madgag.spongycastle:core:1.58.0.0")
 
     // Thêm SDK
-    implementation 'com.github.VBotDevTeam:VBotPhoneSDKPrivate:2.0.28'
+    implementation 'com.github.VBotDevTeam:VBotPhoneSDKPrivate:2.0.27'
 }
 ```
 
